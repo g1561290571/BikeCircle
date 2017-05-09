@@ -60,25 +60,21 @@
         android:layout_height="wrap_content"
         android:id="@+id/guideline37"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.06"
-        tools:layout_editor_absoluteY="0dp"
-        tools:layout_editor_absoluteX="22dp" />
+        app:layout_constraintGuide_percent="0.04" />
 
     <android.support.constraint.Guideline
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/guideline38"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.14" />
+        app:layout_constraintGuide_percent="0.12" />
 
     <android.support.constraint.Guideline
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/guideline39"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.06"
-        tools:layout_editor_absoluteY="34dp"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintGuide_percent="0.05" />
 
     <EditText
         android:id="@+id/loginName"
