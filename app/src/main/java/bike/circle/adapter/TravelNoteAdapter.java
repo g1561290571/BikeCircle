@@ -1,4 +1,4 @@
-package bike.circle.comment;
+package bike.circle.adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -16,6 +16,7 @@ import bike.circle.dto.TravelNoteZoom;
 public class TravelNoteAdapter extends RecyclerView.Adapter<TravelNoteViewHolder> {
     private List<TravelNoteZoom> travelNoteZooms ;
     private LayoutInflater layoutInflater;
+
 
     public TravelNoteAdapter(List<TravelNoteZoom> travelNoteZooms ,LayoutInflater layoutInflater) {
         this.travelNoteZooms = travelNoteZooms;
@@ -36,4 +37,6 @@ public class TravelNoteAdapter extends RecyclerView.Adapter<TravelNoteViewHolder
     public int getItemCount() {
         return travelNoteZooms.size();
     }
+
+
 }

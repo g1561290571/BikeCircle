@@ -1,7 +1,10 @@
 package bike.circle.pool;
 
+import android.widget.ImageView;
+
 import java.util.List;
 
+import bike.circle.request.BaseRequest;
 import bike.circle.dto.TravelNoteZoom;
 
 /**
@@ -9,5 +12,10 @@ import bike.circle.dto.TravelNoteZoom;
  */
 
 public interface NetResPool {
-    List<TravelNoteZoom> getHotTravelNote();
+    interface PoolCallBack{
+        void before();
+        void after(Object obj);
+    }
+    List<TravelNoteZoom> getHotTravelNote(PoolCallBack poolCallBack);
+    List<ImageView> getHomeBanner(PoolCallBack poolCallBack);
 }
