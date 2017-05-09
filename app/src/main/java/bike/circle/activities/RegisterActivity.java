@@ -32,13 +32,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.yalantis.ucrop.UCrop;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.URL;
 import java.security.Permission;
 import java.util.UUID;
 
@@ -49,13 +52,15 @@ import bike.circle.request.BaseRequest;
 import bike.circle.request.HttpFileNetUtil;
 import bike.circle.request.RegisterRequest;
 import bike.circle.util.ToastUtil;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class RegisterActivity extends BaseActivity implements View.OnClickListener{
 
-    public static final int TAKE_PHOTO = 1;
-    public static final int CHOOSE_PHOTO = 2;
+    private static final int TAKE_PHOTO = 1;
+    private static final int CHOOSE_PHOTO = 2;
 
-    private ImageView mPortrait;
+
+    private CircleImageView mPortrait;
     private ImageView mBack;
     private RadioButton mMale;
     private RadioButton mFemale;
@@ -68,8 +73,9 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
     private UserRegisterInfo mRegister;
     private HttpFileNetUtil httpFileNetUtil;
 
-
     private Uri imageUri;
+    private Bitmap mPortraitBitmap;
+    private File mPortraitFile;
 
     public static Intent getIntent(Context context){
 
@@ -83,7 +89,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
 
     @Override
     protected void initView() {
-        mPortrait = (ImageView) findViewById(R.id.portrait);
+        mPortrait = (CircleImageView) findViewById(R.id.portrait);
         mBack =  (ImageView) findViewById(R.id.back);
         mMale = (RadioButton) findViewById(R.id.male);
         mFemale = (RadioButton) findViewById(R.id.female);
@@ -174,9 +180,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
             case TAKE_PHOTO:
                 if (resultCode == RESULT_OK) {
                     try {
-                        Bitmap bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(imageUri));
-                        mPortrait.setImageBitmap(bitmap);
-                        upLoadImage(bitmap);
+                        cutPhoto(imageUri);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -184,91 +188,36 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                 break;
             case CHOOSE_PHOTO:
                 if (resultCode == RESULT_OK) {
-                    if (Build.VERSION.SDK_INT >= 19) {
-                        handleImageOnKitKat(data);
-                    } else {
-                        handleImageBeforeKitKat(data);
-                    }
+                    Uri uri = data.getData();
+                    cutPhoto(uri);
                 }
                 break;
+            case UCrop.REQUEST_CROP:
+                if(resultCode == RESULT_OK){
+                    final Uri resultUri = UCrop.getOutput(data);
+                    try {
+                        mPortraitBitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(resultUri));
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    }
+                    upLoadImage(mPortraitFile);
+                }
             default:
                 break;
         }
     }
 
-    public File saveBitmap(Bitmap mBitmap){
-        File storageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM);
-        File file = null;
-        try {
-            file = File.createTempFile(
-                    UUID.randomUUID().toString(),
-                    ".jpeg",
-                    storageDir
-            );
-
-            FileOutputStream out=new FileOutputStream(file);
-            mBitmap.compress(Bitmap.CompressFormat.JPEG, 100, out);
-            out.flush();
-            out.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return file;
+    private void cutPhoto(Uri uri){
+        mPortraitFile = new File(getCacheDir(), "portrait.jpeg");
+        Uri mDestinationUri = Uri.fromFile(mPortraitFile);
+        UCrop.of(uri, mDestinationUri)
+                .withAspectRatio(1, 1)
+                .withMaxResultSize(512, 512)
+                .start(RegisterActivity.this);
     }
 
-    @TargetApi(19)
-    private void handleImageOnKitKat(Intent data) {
-        String imagePath = null;
-        Uri uri = data.getData();
-        if (DocumentsContract.isDocumentUri(this, uri)) {
-            String docId = DocumentsContract.getDocumentId(uri);
-            if("com.android.providers.media.documents".equals(uri.getAuthority())) {
-                String id = docId.split(":")[1];
-                String selection = MediaStore.Images.Media._ID + "=" + id;
-                imagePath = getImagePath(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, selection);
-            } else if ("com.android.providers.downloads.documents".equals(uri.getAuthority())) {
-                Uri contentUri = ContentUris.withAppendedId(Uri.parse("content://downloads/public_downloads"), Long.valueOf(docId));
-                imagePath = getImagePath(contentUri, null);
-            }
-        } else if ("content".equalsIgnoreCase(uri.getScheme())) {
-            imagePath = getImagePath(uri, null);
-        } else if ("file".equalsIgnoreCase(uri.getScheme())) {
-            imagePath = uri.getPath();
-        }
 
-        displayImage(imagePath);
-    }
-
-    private void handleImageBeforeKitKat(Intent data) {
-        Uri uri = data.getData();
-        String imagePath = getImagePath(uri, null);
-        displayImage(imagePath);
-    }
-
-    private String getImagePath(Uri uri, String selection) {
-        String path = null;
-        Cursor cursor = getContentResolver().query(uri, null, selection, null, null);
-        if (cursor != null) {
-            if (cursor.moveToFirst()) {
-                path = cursor.getString(cursor.getColumnIndex(MediaStore.Images.Media.DATA));
-            }
-            cursor.close();
-        }
-        return path;
-    }
-
-    private void displayImage(String imagePath) {
-        if (imagePath != null) {
-            Bitmap bitmap = BitmapFactory.decodeFile(imagePath);
-            mPortrait.setImageBitmap(bitmap);
-            upLoadImage(bitmap);
-        } else {
-            Toast.makeText(this, "failed to get image", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    private void upLoadImage(Bitmap bitmap){
-        File file = saveBitmap(bitmap);
+    private void upLoadImage(File file){
         httpFileNetUtil.conn(file, HttpConnectURL.UPPORTRAIT , new HttpFileNetUtil.FileCallback() {
             @Override
             public void before() {
@@ -280,6 +229,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                 try {
                     JSONObject jsonObject = new JSONObject(res.toString());
                     mRegister .setImagePath(jsonObject.getString("res"));
+                    mPortrait.setImageBitmap(mPortraitBitmap);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

@@ -20,7 +20,9 @@
         <activity android:name="bike.circle.activities.LoginActivity" />
         <activity android:name="bike.circle.activities.RegisterActivity" />
         <activity android:name="bike.circle.activities.MainActivity" />
-
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait" />
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="bike.circle.fileprovider"
