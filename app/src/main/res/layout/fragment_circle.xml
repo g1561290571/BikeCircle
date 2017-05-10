@@ -1,8 +1,261 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="bike.circle.fragement.CircleFragment">
+    android:background="@color/colorWhite"
+    android:orientation="vertical">
 
-</FrameLayout>
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            app:contentScrim="@color/colorPrimary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center|top"
+                android:scaleType="centerCrop"
+                app:layout_collapseMode="parallax"
+                app:srcCompat="@drawable/circle_banner" />
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:title="@string/circle">
+            </android.support.v7.widget.Toolbar>
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center|right"
+                    android:layout_marginBottom="0dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="0dp"
+                    android:background="@drawable/circle_button"
+                    android:text="@string/my_travel_note"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toTopOf="@+id/guideline70"
+                    app:layout_constraintHorizontal_bias="0.561"
+                    app:layout_constraintLeft_toLeftOf="@+id/guideline81"
+                    app:layout_constraintRight_toLeftOf="@+id/guideline80"
+                    app:layout_constraintTop_toTopOf="@+id/guideline71"
+                    app:layout_constraintVertical_bias="1.0" />
+
+                <Button
+                    android:id="@+id/button2"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center|left"
+                    android:layout_marginBottom="0dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="0dp"
+                    android:layout_marginTop="0dp"
+                    android:background="@drawable/circle_button"
+                    android:text="@string/my_action"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toTopOf="@+id/guideline70"
+                    app:layout_constraintLeft_toLeftOf="@+id/guideline74"
+                    app:layout_constraintRight_toLeftOf="@+id/guideline82"
+                    app:layout_constraintTop_toTopOf="@+id/guideline71"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <android.support.constraint.Guideline
+                    android:id="@+id/guideline64"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.5" />
+
+                <android.support.constraint.Guideline
+                    android:id="@+id/guideline70"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.85" />
+
+                <android.support.constraint.Guideline
+                    android:id="@+id/guideline71"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.15" />
+
+                <android.support.constraint.Guideline
+                    android:id="@+id/guideline74"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.6" />
+
+                <android.support.constraint.Guideline
+                    android:id="@+id/guideline80"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.4" />
+
+                <android.support.constraint.Guideline
+                    android:id="@+id/guideline81"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.25" />
+
+                <android.support.constraint.Guideline
+                    android:id="@+id/guideline82"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.75" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|left"
+                    android:layout_marginBottom="0dp"
+                    android:layout_marginRight="-1dp"
+                    android:layout_marginTop="0dp"
+                    android:text="@string/hot_travel_action"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/guideline84"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginLeft="0dp"
+                    app:layout_constraintLeft_toLeftOf="@+id/guideline88"
+                    app:layout_constraintHorizontal_bias="0.0" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="7dp"
+                    android:layout_gravity="center|right"
+                    android:layout_marginBottom="0dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="0dp"
+                    android:layout_marginTop="0dp"
+                    android:background="@color/colorLine"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintLeft_toLeftOf="@+id/guideline84"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <android.support.constraint.Guideline
+                    android:id="@+id/guideline84"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.20" />
+
+                <android.support.constraint.Guideline
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/guideline88"
+                    app:layout_constraintGuide_percent="0.04"
+                    android:orientation="vertical" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <include layout="@layout/s"></include>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="7dp"
+                app:srcCompat="@color/colorLine" />
+
+            <include layout="@layout/s"></include>
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|left"
+                    android:layout_marginBottom="0dp"
+                    android:layout_marginRight="0dp"
+                    android:layout_marginTop="0dp"
+                    android:text="@string/friends_travel"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/guideline83"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginLeft="0dp"
+                    app:layout_constraintLeft_toLeftOf="@+id/guideline87"
+                    app:layout_constraintHorizontal_bias="0.0" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="7dp"
+                    android:layout_gravity="center|right"
+                    android:layout_marginBottom="0dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="0dp"
+                    android:layout_marginTop="0dp"
+                    android:background="@color/colorLine"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintLeft_toLeftOf="@+id/guideline83"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <android.support.constraint.Guideline
+                    android:id="@+id/guideline83"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.20" />
+
+                <android.support.constraint.Guideline
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/guideline87"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.04" />
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </android.support.v7.widget.RecyclerView>
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+</android.support.design.widget.CoordinatorLayout>

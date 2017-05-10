@@ -15,14 +15,12 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@drawable/tab_background"
+        android:layout_height="48dp"
         android:layout_gravity="bottom|center">
         <android.support.v4.app.FragmentTabHost
-            android:layout_margin="1dp"
-            android:background="@color/colorWhite"
+            android:background="@drawable/tab_background"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_gravity="center|bottom"
             android:id="@android:id/tabhost">
         </android.support.v4.app.FragmentTabHost>

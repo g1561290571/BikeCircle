@@ -49,12 +49,13 @@ import bike.circle.app.R;
 import bike.circle.constant.HttpConnectURL;
 import bike.circle.dto.UserRegisterInfo;
 import bike.circle.request.BaseRequest;
+import bike.circle.request.CheckLoginNameRequest;
 import bike.circle.request.HttpFileNetUtil;
 import bike.circle.request.RegisterRequest;
 import bike.circle.util.ToastUtil;
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class RegisterActivity extends BaseActivity implements View.OnClickListener{
+public class RegisterActivity extends BaseActivity implements View.OnClickListener , View.OnFocusChangeListener{
 
     private static final int TAKE_PHOTO = 1;
     private static final int CHOOSE_PHOTO = 2;
@@ -105,6 +106,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
         mPortrait.setOnClickListener(RegisterActivity.this);
         mBack.setOnClickListener(RegisterActivity.this);
         mButton.setOnClickListener(RegisterActivity.this);
+        mUserLoginName.setOnFocusChangeListener(RegisterActivity.this);
     }
 
     @Override
@@ -124,7 +126,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
         File file = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
         File img = null;
         try {
-            img = File.createTempFile(name,".jpg",file);
+            img = File.createTempFile(name,".jpeg",file);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -337,5 +339,40 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
         lp.alpha = 0.5f;
         getWindow().setAttributes(lp);
         popupWindow.showAtLocation(popView, Gravity.BOTTOM,0,50);
+    }
+
+    @Override
+    public void onFocusChange(View v, boolean hasFocus) {
+        switch (v.getId()){
+            case R.id.loginName:checkLoginName();break;
+        }
+    }
+
+    private void checkLoginName(){
+        String loginName = mUserLoginName.getText().toString();
+        if(loginName.length()>0){
+            new CheckLoginNameRequest(loginName).connect(new BaseRequest.RequestCallback() {
+                @Override
+                public void before() {
+
+                }
+
+                @Override
+                public void success(JSONObject res) {
+                    try {
+                        if(!res.getBoolean("res"))
+                            ToastUtil.makeLongText(RegisterActivity.this,"重名");
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                @Override
+                public void fail(int type) {
+
+                }
+            });
+        }
     }
 }

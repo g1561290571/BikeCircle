@@ -6,8 +6,10 @@ import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.AppBarLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +21,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import bike.circle.activities.RankActivity;
+import bike.circle.activities.StartActionActivity;
 import bike.circle.request.BaseRequest;
 import bike.circle.app.R;
 import bike.circle.adapter.BannerAdapter;
@@ -41,6 +45,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     private TravelNoteAdapter mTravelNoteAdapter;
     private ConstraintLayout mRank;
     private ConstraintLayout mStartActivity;
+    private Toolbar toolbar;
 
     public HomeFragment() {
 
@@ -98,6 +103,15 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         mHotTravelNotes = new ArrayList<>();
         bannerImages = new ArrayList<>();
         mTravelNoteAdapter = new TravelNoteAdapter( mHotTravelNotes , LayoutInflater.from(getActivity()));
+
+        toolbar = (Toolbar) view.findViewById(R.id.toolbar);
+        setToolBar();
+    }
+
+    private void setToolBar(){
+        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setHomeAsUpIndicator(getResources().getDrawable(R.drawable.ic_menu));
     }
 
     private void addBanner(){
@@ -155,8 +169,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.rank:;break;
-            case R.id.start_activity:;break;
+            case R.id.rank:startActivity(RankActivity.getIntent(getActivity()));break;
+            case R.id.start_activity:startActivity(StartActionActivity.getIntent(getActivity()));break;
         }
     }
 

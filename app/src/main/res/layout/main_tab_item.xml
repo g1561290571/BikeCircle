@@ -6,18 +6,20 @@
     android:orientation="vertical">
 
     <ImageView
-        android:layout_gravity="center|bottom"
+        android:layout_gravity="center|top"
         android:id="@+id/tab_item"
-        android:layout_width="30dp"
-        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="23dp"
         android:layout_weight="1" />
 
     <TextView
-        android:layout_gravity="center|bottom"
         android:id="@+id/tab_title"
-        android:textColor="@color/colorLine"
-        android:layout_marginTop="-4dp"
-        android:layout_marginBottom="5dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|bottom"
+        android:layout_weight="1"
+        android:layout_marginBottom="6dp"
+        android:textColor="@color/colorLine"
+        android:textSize="12sp" />
 </LinearLayout>

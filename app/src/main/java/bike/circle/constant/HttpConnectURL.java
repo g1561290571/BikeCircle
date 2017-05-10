@@ -9,6 +9,7 @@ public class HttpConnectURL {
     private static String ACCOUNT = "account/";
 
     public static String Login = HOST + ACCOUNT +"login";
-    public static String UPPORTRAIT = HOST + ACCOUNT +"upportrait";
+    public static String UPPORTRAIT = HOST + ACCOUNT +"upPortrait";
     public static String REGISTER = HOST + ACCOUNT+"register";
+    public static String CHECKLOGINANMPEPEAT = HOST + ACCOUNT+"checkLoginNameRepeat";
 }

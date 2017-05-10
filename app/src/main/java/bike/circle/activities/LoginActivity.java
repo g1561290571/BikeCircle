@@ -110,7 +110,9 @@ public class LoginActivity extends BaseActivity {
         @Override
         public void onClick(View v) {
             switch (v.getId()){
-                case R.id.login:login();break;
+                case R.id.login:
+                    startActivity(MainActivity.getIntent(LoginActivity.this));
+                    login();break;
 
                 case R.id.forget_password:;break;
 

@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="bike.circle.app">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -19,10 +23,12 @@
         </activity>
         <activity android:name="bike.circle.activities.LoginActivity" />
         <activity android:name="bike.circle.activities.RegisterActivity" />
-        <activity android:name="bike.circle.activities.MainActivity" />
+        <activity android:name="bike.circle.activities.MainActivity"
+            android:label=""/>
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
             android:screenOrientation="portrait" />
+
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="bike.circle.fileprovider"
@@ -33,13 +39,9 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
-
+        <activity android:name="bike.circle.activities.StartActionActivity"
+            android:label="@string/riding_activity"/>
+        <activity android:name="bike.circle.activities.RankActivity"></activity>
     </application>
-
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-
 
 </manifest>

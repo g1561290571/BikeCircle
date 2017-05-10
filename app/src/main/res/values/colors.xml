@@ -6,4 +6,5 @@
     <color name="colorTitle">#8e8e8e</color>
     <color name="colorLine">#bbbbbb</color>
     <color name="colorWhite">#ffffff</color>
+    <color name="colorGary">#fefefefe</color>
 </resources>

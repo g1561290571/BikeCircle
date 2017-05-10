@@ -3,9 +3,8 @@ package bike.circle.activities;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.FragmentTabHost;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TabHost;
@@ -22,7 +21,7 @@ import bike.circle.fragement.RidingFriendsFragment;
 public class MainActivity extends BaseActivity implements FragmentTabHost.OnTabChangeListener{
     private FragmentTabHost mTabHost;
     private LayoutInflater layoutInflater;
-
+    private SlidingMenu menu;
     private Class mFragmentClass[] = { HomeFragment.class, RidingFriendsFragment.class,CircleFragment.class};
 
     private int mTabImage[] = { R.drawable.main_home_item,R.drawable.main_friend_item,R.drawable.main_circle_item };
@@ -31,6 +30,7 @@ public class MainActivity extends BaseActivity implements FragmentTabHost.OnTabC
     public static Intent getIntent(Context context){
         return new Intent(context,MainActivity.class);
     }
+
 
     @Override
     protected int getContentViewId() {
@@ -80,14 +80,14 @@ public class MainActivity extends BaseActivity implements FragmentTabHost.OnTabC
     }
 
     public void initSlidingMenu(){
-        SlidingMenu menu = new SlidingMenu(this);
+        menu = new SlidingMenu(this);
         menu.setMode(SlidingMenu.LEFT);
         menu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
         menu.setFadeEnabled(true);
         menu.setFadeDegree(0.35f);
         menu.setBehindOffset(getWindowManager().getDefaultDisplay().getWidth()/5);
         menu.attachToActivity(this, SlidingMenu.SLIDING_CONTENT);
-        menu.setMenu(R.layout.test);
+        menu.setMenu(R.layout.silder_menu);
     }
 
     private void updateTab(){
@@ -117,5 +117,13 @@ public class MainActivity extends BaseActivity implements FragmentTabHost.OnTabC
                     iv.setImageResource(R.drawable.main_circle_item);
             }
         }
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch (item.getItemId()){
+            case android.R.id.home:menu.toggle();break;
+
+        }
+        return true;
     }
 }

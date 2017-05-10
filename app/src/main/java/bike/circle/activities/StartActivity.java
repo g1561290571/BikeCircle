@@ -40,30 +40,6 @@ public class StartActivity extends BaseActivity {
     @Override
     protected void initView() {
         mBackground = (ImageView) findViewById(R.id.backgroud);
-
-        int width = getWindow().getWindowManager().getDefaultDisplay().getWidth();
-        int height = getWindow().getWindowManager().getDefaultDisplay().getHeight();
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.start_image);
-
-        int bWidth = bitmap.getWidth();
-        int bHeight = bitmap.getHeight();
-
-        BigDecimal ratio = new BigDecimal(width).divide(new BigDecimal(height),10,ROUND_HALF_DOWN);
-        BigDecimal bRatio = new BigDecimal(bWidth).divide(new BigDecimal(bHeight),10,ROUND_HALF_DOWN);
-
-        if(ratio.compareTo(bRatio) < 0){
-            int cWidth = ratio.multiply(new BigDecimal(bHeight)).intValue();
-            int hWidth = (bWidth-cWidth)/2;
-            bitmap = Bitmap.createBitmap(bitmap, hWidth , 0 , cWidth -hWidth , bHeight, null,true);
-            mBackground.setImageBitmap(bitmap);
-        }else if(ratio.compareTo(bRatio) > 0){
-            int cHeight = new BigDecimal(bWidth).divide(ratio , 10 ,ROUND_HALF_DOWN).intValue();
-            int hHeight = (bHeight-cHeight)/2;
-            bitmap = Bitmap.createBitmap(bitmap, 0 ,hHeight , bWidth , cHeight-hHeight, null,true);
-            mBackground.setImageBitmap(bitmap);
-        }
-
-
     }
 
     @Override

@@ -4,20 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="5dp"
-    android:layout_marginRight="5dp"
-    android:layout_marginLeft="5dp">
+    android:layout_marginTop="4dp"
+    android:layout_marginRight="4dp"
+    android:layout_marginLeft="4dp">
 
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="50dp">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/portrait"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:srcCompat="@drawable/travel_sample_portrait"
+            android:src="@drawable/travel_sample_portrait"
             android:layout_marginLeft="10dp"
             app:layout_constraintLeft_toLeftOf="@+id/guideline5"
             app:layout_constraintRight_toLeftOf="@+id/guideline6"
@@ -33,18 +33,18 @@
             android:id="@+id/nike_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="0dp"
             android:text="NikeName"
             android:textColor="@color/colorAccent"
-            android:textSize="18sp"
-            android:layout_marginLeft="0dp"
-            app:layout_constraintLeft_toLeftOf="@+id/guideline6"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="0dp"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="0dp"
-            android:layout_marginRight="0dp"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintLeft_toLeftOf="@+id/guideline6"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintHorizontal_bias="0.02" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <android.support.constraint.Guideline
             android:layout_width="wrap_content"
@@ -78,7 +78,7 @@
             android:layout_marginTop="0dp"
             android:text="TextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextText"
             android:textColor="@color/colorLine"
-            android:textSize="14sp" />
+            android:textSize="12sp" />
 
     </FrameLayout>
 
@@ -181,14 +181,14 @@
             android:layout_height="wrap_content"
             android:id="@+id/guideline9"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.88" />
+            app:layout_constraintGuide_percent="0.89" />
 
         <android.support.constraint.Guideline
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/guideline10"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.73" />
+            app:layout_constraintGuide_percent="0.71" />
 
         <android.support.constraint.Guideline
             android:layout_width="wrap_content"
@@ -202,7 +202,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/guideline13"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.76" />
+            app:layout_constraintGuide_percent="0.75" />
 
 
     </android.support.constraint.ConstraintLayout>

@@ -59,21 +59,22 @@
         android:id="@+id/password"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:background="@null"
         android:ems="10"
         android:hint="@string/login_password"
         android:inputType="textPassword"
-        android:background="@null"
         android:selectAllOnFocus="false"
         android:singleLine="false"
         android:textColorHint="@color/colorPrimary"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline22"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline"
         app:layout_constraintRight_toLeftOf="@+id/guideline26"
         app:layout_constraintTop_toTopOf="@+id/guideline20"
-        app:layout_constraintVertical_bias="0.52"
-        android:layout_marginLeft="0dp"
-        android:layout_marginRight="0dp"
-        app:layout_constraintLeft_toLeftOf="@+id/guideline"
-        app:layout_constraintHorizontal_bias="0.0" />
+        app:layout_constraintVertical_bias="0.52" />
 
     <Button
         android:id="@+id/login"
