@@ -25,4 +25,8 @@ public class ToastUtil {
             toast.setText(text);
         toast.show();
     }
+
+    public void dd(){
+
+    }
 }
