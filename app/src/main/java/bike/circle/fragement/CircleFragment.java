@@ -12,7 +12,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import bike.circle.activities.MainActivity;
 import bike.circle.adapter.TravelNoteAdapter;
@@ -24,6 +26,10 @@ import bike.circle.pool.StaticPool;
 public class CircleFragment extends Fragment {
     private View view;
     private Toolbar toolbar;
+    private RecyclerView mFriendTravel;
+    private LinearLayoutManager mLinearLayoutManager;
+    private List<TravelNoteZoom> mHotTravelNotes;
+    private TravelNoteAdapter mTravelNoteAdapter;
 
     public CircleFragment() {
     }
@@ -50,6 +56,24 @@ public class CircleFragment extends Fragment {
 
     private void initView() {
         toolbar = (Toolbar) view.findViewById(R.id.toolbar);
+        mLinearLayoutManager = new LinearLayoutManager(getActivity());
+        mFriendTravel = (RecyclerView) view.findViewById(R.id.firend_travel);
+        mHotTravelNotes = new ArrayList<>();
+        mTravelNoteAdapter = new TravelNoteAdapter( mHotTravelNotes , LayoutInflater.from(getActivity()));
+        mFriendTravel.setAdapter(mTravelNoteAdapter);
+        mFriendTravel.setLayoutManager(mLinearLayoutManager);
+        new StaticPool(getActivity()).getHotTravelNote(new NetResPool.PoolCallBack() {
+            @Override
+            public void before() {
+
+            }
+            @Override
+            public void after(Object res) {
+                mHotTravelNotes.addAll((Collection<? extends TravelNoteZoom>) res);
+                mTravelNoteAdapter.notifyDataSetChanged();
+            }
+
+        });
         setToolBar();
     }
 
