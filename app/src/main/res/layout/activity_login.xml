@@ -49,6 +49,7 @@
         android:inputType="textPersonName"
         android:textColor="@color/colorTitle"
         android:textColorHint="@color/colorPrimary"
+        android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline20"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="@+id/guideline"
@@ -70,7 +71,7 @@
         android:singleLine="false"
         android:textColor="@color/colorTitle"
         android:textColorHint="@color/colorPrimary"
-        android:textSize="18sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline22"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="@+id/guideline"
@@ -81,17 +82,17 @@
     <Button
         android:id="@+id/login"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:background="@drawable/login_button_shape"
         android:text="@string/login"
         android:textColor="@color/colorWhite"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline24"
+        android:textSize="16sp"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="@+id/guideline25"
         app:layout_constraintRight_toLeftOf="@+id/guideline26"
         app:layout_constraintTop_toTopOf="@+id/guideline22"
-        app:layout_constraintVertical_bias="0.100000024" />
+        android:layout_marginBottom="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline97" />
 
     <TextView
         android:id="@+id/forget_password"
@@ -99,12 +100,12 @@
         android:layout_height="wrap_content"
         android:text="@string/forget_password"
         android:textColor="@color/colorPrimary"
-        android:textSize="14sp"
-        app:layout_constraintRight_toLeftOf="@+id/guideline17"
-        app:layout_constraintLeft_toLeftOf="@+id/guideline25"
-        app:layout_constraintTop_toTopOf="@+id/guideline22"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline24"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline25"
+        app:layout_constraintRight_toLeftOf="@+id/guideline17"
+        app:layout_constraintTop_toTopOf="@+id/guideline22"
         app:layout_constraintVertical_bias="0.84000003" />
 
     <TextView
@@ -113,11 +114,11 @@
         android:layout_height="wrap_content"
         android:text="@string/register"
         android:textColor="@color/colorPrimary"
-        android:textSize="14sp"
-        app:layout_constraintLeft_toLeftOf="@+id/guideline18"
-        app:layout_constraintRight_toLeftOf="@+id/guideline26"
+        android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline24"
         app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline18"
+        app:layout_constraintRight_toLeftOf="@+id/guideline26"
         app:layout_constraintTop_toTopOf="@+id/guideline22"
         app:layout_constraintVertical_bias="0.835" />
 
@@ -139,19 +140,19 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:text="@string/other_login"
         android:textColor="@color/colorPrimary"
-        android:textSize="18sp"
-        app:layout_constraintRight_toLeftOf="@+id/guideline18"
-        android:layout_marginRight="8dp"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="@+id/guideline17"
-        android:layout_marginBottom="8dp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline27"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline17"
+        app:layout_constraintRight_toLeftOf="@+id/guideline18"
         app:layout_constraintTop_toTopOf="@+id/guideline24"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
         app:layout_constraintVertical_bias="0.0" />
 
     <android.support.constraint.Guideline
@@ -370,5 +371,12 @@
         app:layout_constraintTop_toBottomOf="@+id/user_line"
         app:layout_constraintVertical_bias="0.83"
         app:srcCompat="@color/colorPrimary" />
+
+    <android.support.constraint.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/guideline97"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.66" />
 
 </android.support.constraint.ConstraintLayout>

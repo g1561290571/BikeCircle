@@ -58,6 +58,7 @@
                     android:layout_marginBottom="0dp"
                     android:layout_marginLeft="0dp"
                     android:layout_marginTop="0dp"
+                    android:textColor="@color/colorWhite"
                     android:background="@drawable/circle_button"
                     android:text="@string/my_travel_note"
                     android:textSize="12sp"
@@ -72,6 +73,7 @@
                     android:id="@+id/button2"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
+                    android:textColor="@color/colorWhite"
                     android:layout_gravity="center|left"
                     android:layout_marginBottom="0dp"
                     android:layout_marginLeft="0dp"
@@ -189,14 +191,14 @@
 
             </android.support.constraint.ConstraintLayout>
 
-            <include layout="@layout/s"></include>
+            <include layout="@layout/hot_action"></include>
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="7dp"
                 app:srcCompat="@color/colorLine" />
 
-            <include layout="@layout/s"></include>
+            <include layout="@layout/hot_action"></include>
 
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"

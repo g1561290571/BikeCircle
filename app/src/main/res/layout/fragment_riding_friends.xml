@@ -3,14 +3,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="bike.circle.fragement.RidingFriendsFragment">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="54dp"
-        android:background="@color/colorPrimary">
-    </android.support.v7.widget.Toolbar>
+        android:background="@color/colorPrimary"
+        ></android.support.v7.widget.Toolbar>
+
+    <android.support.v7.widget.SearchView
+        android:layout_width="310dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:background="@drawable/search_shape">
+
+    </android.support.v7.widget.SearchView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorLine"
+        android:orientation="vertical">
+
+        <include layout="@layout/fragment_riding_friend_list_message"></include>
+
+        <include layout="@layout/fragment_riding_friend_list_message"></include>
+
+    </LinearLayout>
 
     <!-- TODO: Update blank fragment layout -->
 
