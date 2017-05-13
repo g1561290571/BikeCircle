@@ -23,8 +23,9 @@
         </activity>
         <activity android:name="bike.circle.activities.LoginActivity" />
         <activity android:name="bike.circle.activities.RegisterActivity" />
-        <activity android:name="bike.circle.activities.MainActivity"
-            android:label=""/>
+        <activity
+            android:name="bike.circle.activities.MainActivity"
+            android:label="" />
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
             android:screenOrientation="portrait" />
@@ -39,9 +40,14 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
-        <activity android:name="bike.circle.activities.StartActionActivity"
-            android:label="@string/riding_activity"/>
-        <activity android:name="bike.circle.activities.RankActivity"></activity>
+        <activity
+            android:name="bike.circle.activities.StartActionActivity"
+            android:label="@string/riding_activity" />
+        <activity android:name="bike.circle.activities.RankActivity" />
+        <activity android:name="bike.circle.activities.MyInfoActivity" />
+        <activity android:name="bike.circle.activities.MyTravelNoteActivity" />
+        <activity android:name="bike.circle.activities.WriteActivity" />
+        <activity android:name="bike.circle.activities.MyActionActivity"></activity>
     </application>
 
 </manifest>

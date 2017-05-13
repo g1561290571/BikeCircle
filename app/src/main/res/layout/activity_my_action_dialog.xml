@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/aciton_dialog_backgroud_shape"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="40dp"
+        android:layout_height="21dp"
+        android:layout_gravity="center|right"
+        android:layout_margin="12dp"
+        android:background="@drawable/aciton_dialog_shape"
+        android:text="x" />
+
+    <FrameLayout
+        android:id="@+id/title"
+        android:layout_width="272dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="19dp"
+        android:background="@drawable/action_dialog_edittext_backgroud">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center"
+            android:layout_marginBottom="12dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="12dp"
+            android:text="标题：挑战西藏，骑行梦想"
+            android:textColor="@color/colorWhite"
+            android:textSize="16sp" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/leader"
+        android:layout_width="272dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="19dp"
+        android:background="@drawable/action_dialog_edittext_backgroud">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center"
+            android:layout_marginBottom="12dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="12dp"
+            android:text="领队：小小哥"
+            android:textColor="@color/colorWhite"
+            android:textSize="16sp" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="272dp"
+        android:layout_height="35dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="35dp">
+
+        <TextView
+            android:layout_width="96dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="left|center"
+            android:background="@drawable/action_dialog_edittext_backgroud"
+            android:gravity="center"
+            android:text="起点:点击查看"
+            android:textColor="@color/colorWhite" />
+
+        <TextView
+            android:layout_width="96dp"
+            android:layout_height="35dp"
+            android:layout_gravity="right|center"
+            android:background="@drawable/action_dialog_edittext_backgroud"
+            android:gravity="center"
+            android:text="终点:点击查看"
+            android:textColor="@color/colorWhite" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="272dp"
+        android:layout_height="131dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/action_dialog_edittext_backgroud">
+
+        <TextView
+            android:layout_gravity="left|top"
+            android:layout_margin="10dp"
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="参与人员"
+            android:textColor="@color/colorWhite"
+            android:textSize="16sp" />
+    </FrameLayout>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimary"
+        android:text="@string/send_message"
+        android:textColor="@color/colorWhite"
+        android:textSize="16sp" />
+</LinearLayout>

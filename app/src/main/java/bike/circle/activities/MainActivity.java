@@ -85,7 +85,7 @@ public class MainActivity extends BaseActivity implements FragmentTabHost.OnTabC
         menu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
         menu.setFadeEnabled(true);
         menu.setFadeDegree(0.35f);
-        menu.setBehindOffset(getWindowManager().getDefaultDisplay().getWidth()/5);
+        menu.setBehindOffset(getWindowManager().getDefaultDisplay().getWidth()/4);
         menu.attachToActivity(this, SlidingMenu.SLIDING_CONTENT);
         menu.setMenu(R.layout.silder_menu);
     }

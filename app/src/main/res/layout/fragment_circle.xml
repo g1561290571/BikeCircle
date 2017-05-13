@@ -48,19 +48,19 @@
 
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="40dp">
+                android:layout_height="45dp">
 
                 <Button
-                    android:id="@+id/button"
+                    android:id="@+id/travel_note"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_gravity="center|right"
                     android:layout_marginBottom="0dp"
                     android:layout_marginLeft="0dp"
                     android:layout_marginTop="0dp"
-                    android:textColor="@color/colorWhite"
                     android:background="@drawable/circle_button"
                     android:text="@string/my_travel_note"
+                    android:textColor="@color/colorWhite"
                     android:textSize="12sp"
                     app:layout_constraintBottom_toTopOf="@+id/guideline70"
                     app:layout_constraintHorizontal_bias="0.561"
@@ -70,10 +70,9 @@
                     app:layout_constraintVertical_bias="1.0" />
 
                 <Button
-                    android:id="@+id/button2"
+                    android:id="@+id/action"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    android:textColor="@color/colorWhite"
                     android:layout_gravity="center|left"
                     android:layout_marginBottom="0dp"
                     android:layout_marginLeft="0dp"
@@ -81,6 +80,7 @@
                     android:layout_marginTop="0dp"
                     android:background="@drawable/circle_button"
                     android:text="@string/my_action"
+                    android:textColor="@color/colorWhite"
                     android:textSize="12sp"
                     app:layout_constraintBottom_toTopOf="@+id/guideline70"
                     app:layout_constraintLeft_toLeftOf="@+id/guideline74"
@@ -128,14 +128,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    app:layout_constraintGuide_percent="0.25" />
+                    app:layout_constraintGuide_percent="0.22" />
 
                 <android.support.constraint.Guideline
                     android:id="@+id/guideline82"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    app:layout_constraintGuide_percent="0.75" />
+                    app:layout_constraintGuide_percent="0.78" />
 
             </android.support.constraint.ConstraintLayout>
 
@@ -162,7 +162,7 @@
 
                 <ImageView
                     android:layout_width="0dp"
-                    android:layout_height="7dp"
+                    android:layout_height="3dp"
                     android:layout_gravity="center|right"
                     android:layout_marginBottom="0dp"
                     android:layout_marginLeft="0dp"
@@ -195,7 +195,7 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="7dp"
+                android:layout_height="3dp"
                 app:srcCompat="@color/colorLine" />
 
             <include layout="@layout/hot_action"></include>
@@ -223,7 +223,7 @@
 
                 <ImageView
                     android:layout_width="0dp"
-                    android:layout_height="7dp"
+                    android:layout_height="3dp"
                     android:layout_gravity="center|right"
                     android:layout_marginBottom="0dp"
                     android:layout_marginLeft="0dp"

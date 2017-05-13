@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
@@ -17,19 +18,24 @@ import java.util.Collection;
 import java.util.List;
 
 import bike.circle.activities.MainActivity;
+import bike.circle.activities.MyActionActivity;
+import bike.circle.activities.MyTravelNoteActivity;
 import bike.circle.adapter.TravelNoteAdapter;
 import bike.circle.app.R;
 import bike.circle.dto.TravelNoteZoom;
 import bike.circle.pool.NetResPool;
 import bike.circle.pool.StaticPool;
 
-public class CircleFragment extends Fragment {
+public class CircleFragment extends Fragment implements View.OnClickListener{
     private View view;
     private Toolbar toolbar;
     private RecyclerView mFriendTravel;
     private LinearLayoutManager mLinearLayoutManager;
     private List<TravelNoteZoom> mHotTravelNotes;
     private TravelNoteAdapter mTravelNoteAdapter;
+
+    private Button mTravelNote;
+    private Button mAction;
 
     public CircleFragment() {
     }
@@ -50,8 +56,14 @@ public class CircleFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_circle, container, false);
         if(getActivity()!=null){
             initView();
+            bindEvent();
         }
         return view;
+    }
+
+    private void bindEvent() {
+        mTravelNote.setOnClickListener(this);
+        mAction.setOnClickListener(this);
     }
 
     private void initView() {
@@ -75,6 +87,9 @@ public class CircleFragment extends Fragment {
 
         });
         setToolBar();
+
+        mTravelNote = (Button) view.findViewById(R.id.travel_note);
+        mAction = (Button) view.findViewById(R.id.action);
     }
 
     private void setToolBar(){
@@ -84,4 +99,11 @@ public class CircleFragment extends Fragment {
     }
 
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.travel_note:getActivity().startActivity(MyTravelNoteActivity.getIntent(getActivity()));break;
+            case R.id.action:getActivity().startActivity(MyActionActivity.getIntent(getActivity()));
+        }
+    }
 }

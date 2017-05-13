@@ -37,7 +37,7 @@
 
                     <android.support.constraint.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="45dp"
                         android:layout_weight="1"
                         android:background="@color/colorWhite">
 
@@ -158,12 +158,12 @@
                                 android:layout_width="0dp"
                                 android:layout_height="0dp"
                                 app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintHorizontal_bias="0.66"
                                 app:layout_constraintLeft_toLeftOf="@+id/guideline15"
                                 app:layout_constraintRight_toLeftOf="@+id/guideline16"
                                 app:layout_constraintTop_toTopOf="parent"
-                                app:srcCompat="@drawable/main_home_rank"
-                                app:layout_constraintHorizontal_bias="0.66"
-                                app:layout_constraintVertical_bias="0.0" />
+                                app:layout_constraintVertical_bias="0.0"
+                                app:srcCompat="@drawable/main_home_rank" />
 
                             <android.support.constraint.Guideline
                                 android:id="@+id/guideline15"
@@ -227,8 +227,8 @@
         android:id="@+id/hot_travel_note"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
+        android:layout_marginLeft="9dp"
+        android:layout_marginRight="9dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
 
