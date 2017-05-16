@@ -2,11 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+
+    android:layout_marginTop="8dp"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="4dp"
-    android:layout_marginRight="4dp"
-    android:layout_marginLeft="4dp">
+    android:background="@color/colorWhite">
 
 
     <android.support.constraint.ConstraintLayout
@@ -41,7 +42,7 @@
             android:textColor="@color/colorAccent"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintHorizontal_bias="0.04"
             app:layout_constraintLeft_toLeftOf="@+id/guideline6"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -58,7 +59,18 @@
             android:layout_height="wrap_content"
             android:id="@+id/guideline6"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.15" />
+            app:layout_constraintGuide_percent="0.14" />
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:text="5月10日 4.16"
+            android:textSize="10sp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </android.support.constraint.ConstraintLayout>
 
@@ -84,7 +96,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="100dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:orientation="horizontal">
@@ -95,14 +107,16 @@
             android:layout_height="match_parent"
             android:layout_marginRight="2dp"
             android:layout_weight="1"
+            android:scaleType="centerCrop"
             app:srcCompat="@drawable/travel_sample" />
 
         <ImageView
             android:id="@+id/image_two"
-            android:layout_marginLeft="2dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginLeft="2dp"
             android:layout_weight="1"
+            android:scaleType="centerCrop"
             app:srcCompat="@drawable/travel_sample_two" />
     </LinearLayout>
 
@@ -169,7 +183,7 @@
             android:layout_marginRight="0dp"
             android:layout_marginTop="0dp"
             android:text="1008"
-            android:textColor="@color/colorLine"
+            android:textColor="@color/colorTitle"
             android:textSize="8sp"
             app:layout_constraintBottom_toBottomOf="@+id/comment"
             app:layout_constraintHorizontal_bias="0.0"

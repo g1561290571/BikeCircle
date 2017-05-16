@@ -23,8 +23,9 @@
         </activity>
         <activity android:name="bike.circle.activities.LoginActivity" />
         <activity android:name="bike.circle.activities.RegisterActivity" />
-        <activity android:name="bike.circle.activities.MainActivity"
-            android:label=""/>
+        <activity
+            android:name="bike.circle.activities.MainActivity"
+            android:label="" />
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
             android:screenOrientation="portrait" />
@@ -39,9 +40,22 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
-        <activity android:name="bike.circle.activities.StartActionActivity"
-            android:label="@string/riding_activity"/>
-        <activity android:name="bike.circle.activities.RankActivity"></activity>
+        <activity
+            android:name="bike.circle.activities.StartActionActivity"
+            android:label="@string/riding_activity" />
+        <activity android:name="bike.circle.activities.RankActivity" />
+        <activity android:name="bike.circle.activities.MyTravelNoteActivity" />
+        <activity android:name="bike.circle.activities.WriteActivity" />
+        <activity android:name="bike.circle.activities.MyActionActivity" />
+        <activity android:name="bike.circle.activities.TravelNoteDetailedActivity" />
+        <activity android:name="bike.circle.activities.CreateActionActivity" />
+        <activity android:name="bike.circle.activities.UserInfoActivity" />
+        <activity android:name="bike.circle.activities.PubActionActivity" />
+        <activity android:name="bike.circle.activities.ChangeUserInfoActivity" />
+        <activity android:name="bike.circle.activities.FriendInfoActivity" />
+        <activity android:name="bike.circle.activities.ChatActivity" />
+        <activity android:name="bike.circle.activities.NewFriendsActivity" />
+        <activity android:name="bike.circle.activities.SearchActivity"></activity>
     </application>
 
 </manifest>

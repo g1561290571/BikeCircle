@@ -32,6 +32,7 @@ public class StartActivity extends BaseActivity {
     private ImageView mBackground;
 
 
+
     @Override
     protected int getContentViewId() {
         return R.layout.activity_start;
