@@ -8,4 +8,8 @@
     <color name="colorLineLight">#d8d8d8</color>
     <color name="colorWhite">#ffffff</color>
     <color name="colorGary">#fefefefe</color>
+    <color name="colorblank">#FF060606</color>
+    <color name="transparent">#000000</color>
+    <color name="color_text_selected">#dcaa84</color>
+    <color name="color_text_normal">#ffffff</color>
 </resources>

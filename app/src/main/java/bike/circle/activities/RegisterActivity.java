@@ -12,9 +12,12 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.Message;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
@@ -44,6 +47,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.security.Permission;
 import java.util.UUID;
+import java.util.logging.LogRecord;
 
 import bike.circle.app.R;
 import bike.circle.constant.HttpConnectURL;
@@ -52,6 +56,7 @@ import bike.circle.request.BaseRequest;
 import bike.circle.request.CheckLoginNameRequest;
 import bike.circle.request.HttpFileNetUtil;
 import bike.circle.request.RegisterRequest;
+import bike.circle.util.RegularUtil;
 import bike.circle.util.ToastUtil;
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -92,8 +97,8 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
     protected void initView() {
         mPortrait = (CircleImageView) findViewById(R.id.portrait);
         mBack =  (ImageView) findViewById(R.id.back);
-        mMale = (RadioButton) findViewById(R.id.male);
-        mFemale = (RadioButton) findViewById(R.id.female);
+        //mMale = (RadioButton) findViewById(R.id.male);
+       // mFemale = (RadioButton) findViewById(R.id.female);
         mUserLoginName = (EditText) findViewById(R.id.loginName);
         mUserNikeName = (EditText) findViewById(R.id.nikeName);
         mPassword = (EditText) findViewById(R.id.password);
@@ -106,12 +111,52 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
         mPortrait.setOnClickListener(RegisterActivity.this);
         mBack.setOnClickListener(RegisterActivity.this);
         mButton.setOnClickListener(RegisterActivity.this);
-        mUserLoginName.setOnFocusChangeListener(RegisterActivity.this);
+        mUserLoginName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(!hasFocus){
+                    String ll = mUserLoginName.getText().toString();
+                    if (ll.equals("")){
+                        mUserLoginName.setError("请输入");
+                        Message msg = new Message();
+                        msg.obj = "f";
+                        userLoginNameHandler.sendMessage(msg);
+                    }
+                    else if( mUserLoginName.length() < 3 || mUserLoginName.length() > 16){
+                        mUserLoginName.setError("账户名不符合规范，3-16个中英文字符、数字");
+                        Message msg = new Message();
+                        msg.obj = "f";
+                        userLoginNameHandler.sendMessage(msg);
+                    }
+                }
+            }
+        });
+        mUserNikeName.setOnFocusChangeListener(this);
+
     }
+
+    Handler userLoginNameHandler=new Handler()
+    {
+        @Override
+        public void handleMessage(Message msg) {
+            String msgobj=(String) msg.obj;
+
+            switch (msgobj){
+                case "t":
+                    mUserLoginName.requestFocus();
+                    break;
+            }
+            if (msgobj.equals("f")) {
+
+            }
+
+            super.handleMessage(msg);
+        }
+    };
+
 
     @Override
     protected void service() {
-
     }
 
     @Override
@@ -252,7 +297,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
             case R.id.portrait:setPortrait();break;
             case R.id.back:finish();
                     break;
-            case R.id.register:register();
+            case R.id.register:register();break;
 
         }
     }
@@ -345,6 +390,22 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
     public void onFocusChange(View v, boolean hasFocus) {
         switch (v.getId()){
             case R.id.loginName:checkLoginName();break;
+            case R.id.login_name:
+                if(!hasFocus){
+                    String ll = mUserNikeName.getText().toString();
+                    if (ll.equals("")){
+                        mUserNikeName.setError("请输入");
+                        Message msg = new Message();
+                        msg.obj = "f";
+                        userLoginNameHandler.sendMessage(msg);
+                    }
+                    else if( mUserNikeName.length() < 3 || mUserNikeName.length() > 16){
+                        mUserNikeName.setError("账户名不符合规范，3-16个中英文字符、数字");
+                        Message msg = new Message();
+                        msg.obj = "f";
+                        userLoginNameHandler.sendMessage(msg);
+                    }
+                };break;
         }
     }
 

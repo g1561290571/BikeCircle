@@ -26,7 +26,4 @@ public class ToastUtil {
         toast.show();
     }
 
-    public void dd(){
-
-    }
 }

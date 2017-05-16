@@ -55,7 +55,8 @@
         <activity android:name="bike.circle.activities.FriendInfoActivity" />
         <activity android:name="bike.circle.activities.ChatActivity" />
         <activity android:name="bike.circle.activities.NewFriendsActivity" />
-        <activity android:name="bike.circle.activities.SearchActivity"></activity>
+        <activity android:name="bike.circle.activities.SearchActivity" />
+        <activity android:name="bike.circle.activities.FriendCircleActivity"></activity>
     </application>
 
 </manifest>

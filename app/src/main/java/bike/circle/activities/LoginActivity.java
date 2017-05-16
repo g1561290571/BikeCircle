@@ -114,7 +114,7 @@ public class LoginActivity extends BaseActivity {
                     startActivity(MainActivity.getIntent(LoginActivity.this));
                     login();break;
 
-                case R.id.forget_password:;break;
+                case R.id.forget_password:break;
 
                 case R.id.register:startActivity(RegisterActivity.getIntent(LoginActivity.this));break;
             }
