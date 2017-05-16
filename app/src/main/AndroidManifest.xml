@@ -44,10 +44,18 @@
             android:name="bike.circle.activities.StartActionActivity"
             android:label="@string/riding_activity" />
         <activity android:name="bike.circle.activities.RankActivity" />
-        <activity android:name="bike.circle.activities.MyInfoActivity" />
         <activity android:name="bike.circle.activities.MyTravelNoteActivity" />
         <activity android:name="bike.circle.activities.WriteActivity" />
-        <activity android:name="bike.circle.activities.MyActionActivity"></activity>
+        <activity android:name="bike.circle.activities.MyActionActivity" />
+        <activity android:name="bike.circle.activities.TravelNoteDetailedActivity" />
+        <activity android:name="bike.circle.activities.CreateActionActivity" />
+        <activity android:name="bike.circle.activities.UserInfoActivity" />
+        <activity android:name="bike.circle.activities.PubActionActivity" />
+        <activity android:name="bike.circle.activities.ChangeUserInfoActivity" />
+        <activity android:name="bike.circle.activities.FriendInfoActivity" />
+        <activity android:name="bike.circle.activities.ChatActivity" />
+        <activity android:name="bike.circle.activities.NewFriendsActivity" />
+        <activity android:name="bike.circle.activities.SearchActivity"></activity>
     </application>
 
 </manifest>

@@ -10,30 +10,66 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="54dp"
-        android:background="@color/colorPrimary"
-        ></android.support.v7.widget.Toolbar>
+        android:background="@color/colorPrimary">
 
-    <android.support.v7.widget.SearchView
-        android:layout_width="310dp"
-        android:layout_height="30dp"
-        android:layout_gravity="center"
-        android:layout_margin="10dp"
-        android:background="@drawable/search_shape">
 
-    </android.support.v7.widget.SearchView>
+        <LinearLayout
+            android:layout_width="190dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:background="@color/colorWhite">
 
-    <LinearLayout
+            <Button
+                android:id="@+id/message"
+                android:layout_width="62dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginTop="1dp"
+                android:background="@color/colorPrimary"
+                android:text="消息"
+                android:textColor="@color/colorWhite"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/friend"
+                android:layout_width="62dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginTop="1dp"
+                android:background="@color/colorPrimary"
+                android:text="好友"
+                android:textColor="@color/colorWhite"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/circle"
+                android:layout_width="62dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginTop="1dp"
+                android:background="@color/colorPrimary"
+                android:text="圈子"
+                android:textColor="@color/colorWhite"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_gravity="right|center"
+            android:layout_marginRight="14dp"
+            android:src="@drawable/search" />
+
+    </android.support.v7.widget.Toolbar>
+
+    <FrameLayout
+        android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorLine"
-        android:orientation="vertical">
-
-        <include layout="@layout/fragment_riding_friend_list_message"></include>
-
-        <include layout="@layout/fragment_riding_friend_list_message"></include>
-
-    </LinearLayout>
-
-    <!-- TODO: Update blank fragment layout -->
+        android:layout_height="wrap_content"></FrameLayout>
 
 </LinearLayout>

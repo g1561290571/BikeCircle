@@ -18,7 +18,7 @@ import bike.circle.fragement.CircleFragment;
 import bike.circle.fragement.HomeFragment;
 import bike.circle.fragement.RidingFriendsFragment;
 
-public class MainActivity extends BaseActivity implements FragmentTabHost.OnTabChangeListener{
+public class MainActivity extends BaseActivity implements FragmentTabHost.OnTabChangeListener ,View.OnClickListener{
     private FragmentTabHost mTabHost;
     private LayoutInflater layoutInflater;
     private SlidingMenu menu;
@@ -26,6 +26,9 @@ public class MainActivity extends BaseActivity implements FragmentTabHost.OnTabC
 
     private int mTabImage[] = { R.drawable.main_home_item,R.drawable.main_friend_item,R.drawable.main_circle_item };
     private String mTabTitle[] = { "首页", "圈友", "骑行圈" };
+
+    private TextView mMyRank;
+    private TextView mMyInfo;
 
     public static Intent getIntent(Context context){
         return new Intent(context,MainActivity.class);
@@ -87,7 +90,20 @@ public class MainActivity extends BaseActivity implements FragmentTabHost.OnTabC
         menu.setFadeDegree(0.35f);
         menu.setBehindOffset(getWindowManager().getDefaultDisplay().getWidth()/4);
         menu.attachToActivity(this, SlidingMenu.SLIDING_CONTENT);
-        menu.setMenu(R.layout.silder_menu);
+        menu.setMenu(setMenu());
+    }
+
+    private View setMenu(){
+        View view = layoutInflater.inflate(R.layout.silder_menu,null);
+        mMyInfo = (TextView) view.findViewById(R.id.my_info);
+        mMyRank = (TextView) view.findViewById(R.id.my_rank);
+        setMenuEvent();
+        return view;
+    }
+
+    private void setMenuEvent(){
+        mMyInfo.setOnClickListener(this);
+        mMyRank.setOnClickListener(this);
     }
 
     private void updateTab(){
@@ -122,8 +138,15 @@ public class MainActivity extends BaseActivity implements FragmentTabHost.OnTabC
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()){
             case android.R.id.home:menu.toggle();break;
-
         }
         return true;
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.my_info:startActivity(UserInfoActivity.getIntent(MainActivity.this));break;
+            case R.id.my_rank:;break;
+        }
     }
 }

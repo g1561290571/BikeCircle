@@ -183,7 +183,7 @@
             android:layout_marginRight="0dp"
             android:layout_marginTop="0dp"
             android:text="1008"
-            android:textColor="@color/colorLine"
+            android:textColor="@color/colorTitle"
             android:textSize="8sp"
             app:layout_constraintBottom_toBottomOf="@+id/comment"
             app:layout_constraintHorizontal_bias="0.0"

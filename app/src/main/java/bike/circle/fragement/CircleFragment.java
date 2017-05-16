@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
@@ -34,8 +35,11 @@ public class CircleFragment extends Fragment implements View.OnClickListener{
     private List<TravelNoteZoom> mHotTravelNotes;
     private TravelNoteAdapter mTravelNoteAdapter;
 
+
     private Button mTravelNote;
     private Button mAction;
+
+
 
     public CircleFragment() {
     }
@@ -87,10 +91,10 @@ public class CircleFragment extends Fragment implements View.OnClickListener{
 
         });
         setToolBar();
-
         mTravelNote = (Button) view.findViewById(R.id.travel_note);
         mAction = (Button) view.findViewById(R.id.action);
     }
+
 
     private void setToolBar(){
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
@@ -103,7 +107,8 @@ public class CircleFragment extends Fragment implements View.OnClickListener{
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.travel_note:getActivity().startActivity(MyTravelNoteActivity.getIntent(getActivity()));break;
-            case R.id.action:getActivity().startActivity(MyActionActivity.getIntent(getActivity()));
+            case R.id.action:getActivity().startActivity(MyActionActivity.getIntent(getActivity()));break;
         }
     }
+
 }
