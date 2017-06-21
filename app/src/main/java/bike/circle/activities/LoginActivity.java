@@ -76,6 +76,7 @@ public class LoginActivity extends BaseActivity {
         mPassword.setOnFocusChangeListener(lineOnFocus);
         mLogin.setOnClickListener(onclick);
         mRegister.setOnClickListener(onclick);
+        mForgetPassword.setOnClickListener(onclick);
         userLoginPreferences = new UserLoginPreferences(LoginActivity.this);
     }
 
@@ -92,35 +93,6 @@ public class LoginActivity extends BaseActivity {
             login();
     }
 
-    private void saveLogin(){
-        UserLogin userLogin = new UserLogin();
-        userLogin.setLoginName(mLoginName.getText().toString());
-        userLogin.setPassword(mPassword.getText().toString());
-        userLoginPreferences.addUserLogin(userLogin);
-    }
-
-    @Override
-    protected void init() {
-        onclick = new Onclick();
-        lineOnFocus = new LineOnFocus();
-    }
-
-    private class Onclick implements  View.OnClickListener{
-
-        @Override
-        public void onClick(View v) {
-            switch (v.getId()){
-                case R.id.login:
-                    startActivity(MainActivity.getIntent(LoginActivity.this));
-                    login();break;
-
-                case R.id.forget_password:break;
-
-                case R.id.register:startActivity(RegisterActivity.getIntent(LoginActivity.this));break;
-            }
-        }
-    }
-
     private void login(){
         String loginName = mLoginName.getText().toString();
         String password = mPassword.getText().toString();
@@ -134,10 +106,10 @@ public class LoginActivity extends BaseActivity {
             @Override
             public void success(JSONObject res) {
                 try {
-                if(res.has("res")) {
-                    if (res.getBoolean("res"))loginSuccess();
-                    else loginFailed();
-                }
+                    if(res.has("res")) {
+                        if (res.getBoolean("res"))loginSuccess();
+                        else loginFailed();
+                    }
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -150,17 +122,43 @@ public class LoginActivity extends BaseActivity {
             }
         });
     }
-
     private void loginSuccess(){
         saveLogin();
         startActivity(MainActivity.getIntent(LoginActivity.this));
         finish();
     }
+    private void saveLogin(){
+        UserLogin userLogin = new UserLogin();
+        userLogin.setLoginName(mLoginName.getText().toString());
+        userLogin.setPassword(mPassword.getText().toString());
+        userLoginPreferences.addUserLogin(userLogin);
+    }
 
     private void loginFailed(){;
         ToastUtil.makeLongText(LoginActivity.this , "登陆失败请检查账户名密码是否正确");
     }
+    @Override
+    protected void init() {
+        onclick = new Onclick();
+        lineOnFocus = new LineOnFocus();
+    }
 
+    private class Onclick implements  View.OnClickListener{
+
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()){
+                case R.id.login:
+                    startActivity(MainActivity.getIntent(LoginActivity.this));
+                    break;
+                case R.id.forget_password:
+                    startActivity(ForgetPasswordActivity.getIntent(LoginActivity.this));
+                    break;
+
+                case R.id.register:startActivity(RegisterActivity.getIntent(LoginActivity.this));break;
+            }
+        }
+    }
 
 
     private class LineOnFocus implements View.OnFocusChangeListener{

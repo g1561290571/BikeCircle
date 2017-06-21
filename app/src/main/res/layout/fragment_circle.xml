@@ -162,7 +162,7 @@
 
                 <ImageView
                     android:layout_width="0dp"
-                    android:layout_height="3dp"
+                    android:layout_height="1dp"
                     android:layout_gravity="center|right"
                     android:layout_marginBottom="0dp"
                     android:layout_marginLeft="0dp"
@@ -195,7 +195,7 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="3dp"
+                android:layout_height="1dp"
                 app:srcCompat="@color/colorLine" />
 
             <include layout="@layout/hot_action"></include>
@@ -223,7 +223,7 @@
 
                 <ImageView
                     android:layout_width="0dp"
-                    android:layout_height="3dp"
+                    android:layout_height="1dp"
                     android:layout_gravity="center|right"
                     android:layout_marginBottom="0dp"
                     android:layout_marginLeft="0dp"

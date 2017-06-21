@@ -146,7 +146,7 @@ public class MainActivity extends BaseActivity implements FragmentTabHost.OnTabC
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.my_info:startActivity(UserInfoActivity.getIntent(MainActivity.this));break;
-            case R.id.my_rank:;break;
+            case R.id.my_rank:break;
         }
     }
 }

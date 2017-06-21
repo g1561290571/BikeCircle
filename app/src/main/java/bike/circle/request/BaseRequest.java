@@ -7,7 +7,7 @@ import org.json.JSONObject;
  * Created by MrH on 2017/5/5.
  */
 
-public abstract class BaseRequest {
+    public abstract class BaseRequest {
 
     protected HttpNet httpNet  = new HttpNet();
 

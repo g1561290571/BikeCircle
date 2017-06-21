@@ -1,12 +1,9 @@
 package bike.circle.activities;
 
 import android.Manifest;
-import android.annotation.TargetApi;
-import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -14,15 +11,10 @@ import android.os.Build;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
-import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
@@ -31,10 +23,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.RadioButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.gson.Gson;
 import com.yalantis.ucrop.UCrop;
 
 import org.json.JSONException;
@@ -42,12 +32,8 @@ import org.json.JSONObject;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.net.URL;
-import java.security.Permission;
 import java.util.UUID;
-import java.util.logging.LogRecord;
 
 import bike.circle.app.R;
 import bike.circle.constant.HttpConnectURL;
@@ -56,7 +42,6 @@ import bike.circle.request.BaseRequest;
 import bike.circle.request.CheckLoginNameRequest;
 import bike.circle.request.HttpFileNetUtil;
 import bike.circle.request.RegisterRequest;
-import bike.circle.util.RegularUtil;
 import bike.circle.util.ToastUtil;
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -97,8 +82,8 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
     protected void initView() {
         mPortrait = (CircleImageView) findViewById(R.id.portrait);
         mBack =  (ImageView) findViewById(R.id.back);
-        //mMale = (RadioButton) findViewById(R.id.male);
-       // mFemale = (RadioButton) findViewById(R.id.female);
+        mMale = (RadioButton) findViewById(R.id.male);
+       mFemale = (RadioButton) findViewById(R.id.female);
         mUserLoginName = (EditText) findViewById(R.id.loginName);
         mUserNikeName = (EditText) findViewById(R.id.nikeName);
         mPassword = (EditText) findViewById(R.id.password);

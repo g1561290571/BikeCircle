@@ -41,13 +41,12 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline39"
         app:layout_constraintLeft_toLeftOf="@+id/guideline37"
         app:layout_constraintRight_toLeftOf="@+id/guideline38"
-        app:layout_constraintTop_toTopOf="@+id/guideline39"
-        app:layout_constraintVertical_bias="0.477"
         app:srcCompat="@drawable/back"
         tools:layout_constraintBottom_creator="1"
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintRight_creator="1"
-        tools:layout_constraintTop_creator="1" />
+        tools:layout_constraintTop_creator="1"
+        app:layout_constraintHorizontal_bias="0.0" />
 
     <android.support.constraint.Guideline
         android:layout_width="wrap_content"
@@ -295,7 +294,7 @@
         android:orientation="horizontal">
 
         <RadioButton
-            android:id="@+id/radioButton"
+            android:id="@+id/male"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -307,7 +306,7 @@
             android:textColor="@drawable/color_radiobutton" />
 
         <RadioButton
-            android:id="@+id/radioButton2"
+            android:id="@+id/female"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
